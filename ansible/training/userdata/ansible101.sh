@@ -50,6 +50,7 @@ wget https://www.arnaudmorin.fr/tmux.conf -O /root/.tmux.conf
 wget https://www.arnaudmorin.fr/plikrc -O /root/.plikrc
 wget https://www.arnaudmorin.fr/plik -O /usr/local/bin/plik
 chmod +x /usr/local/bin/plik
+echo 'if [[ -n "$PS1" ]] && [[ -z "$TMUX" ]] && [[ -n "$SSH_CONNECTION" ]]; then tmux new-session -A -s ssh_tmux ;fi' >> /root/.bashrc
 
 title.print "Install docker"
 

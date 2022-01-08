@@ -20,6 +20,8 @@ List the images
 
 ```
 docker images
+```
+```
 ...
 debian                   latest    6f4986d78878   2 weeks ago      124MB
 ...
@@ -48,6 +50,8 @@ Ok, now it's time to see the `docker ps` command.
 The `docker ps` command shows you all containers that are currently running:
 ```
 docker ps
+```
+```
 CONTAINER ID   IMAGE     COMMAND               CREATED          STATUS          PORTS                                              NAMES
 f9c03ce13b09   demo      "/usr/sbin/sshd -D"   32 minutes ago   Up 32 minutes   127.0.0.2:8080->8080/tcp, 127.0.0.2:2222->22/tcp   demo
 ```
@@ -61,15 +65,21 @@ You're probably wondering if there is a way to run more than just one command in
 
 ```
 docker run -it debian bash
+```
+```
 / # ls
 bin  boot  dev	etc  home  lib	lib64  media  mnt  opt	proc  root  run  sbin  srv  sys  tmp  usr  var
 ```
 
 Running the `run` command with the `-it` flags attaches us to an interactive tty in the container. Now we can run as many commands in the container as we want. Take some time to run your favorite commands.
 
+To exit from the container, just type `exit`
+
 It's now time to clean some of the old stopped containers to avoid filling your system with dead containers:
 ```
 docker ps -a
+```
+```
 # grab the ID of the containers you want to clean
 docker rm xxyy
 ```
