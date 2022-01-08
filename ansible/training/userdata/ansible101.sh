@@ -25,10 +25,15 @@ function title.print {
 
 exec &> >(log_handler)
 
+title.print "Permit root login"
+echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config
+echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
+echo '' > /root/.ssh/authorized_keys
+echo -e "moutarde42\nmoutarde42" | passwd root
+systemctl restart sshd
+
 title.print "Install some packages"
-
 apt-get update
-
 apt-get install -y \
     apt-transport-https \
     ca-certificates \
@@ -39,6 +44,12 @@ apt-get install -y \
     sshpass \
     tmux
 #    nginx \
+
+title.print "Configuring tmux and plik"
+wget https://www.arnaudmorin.fr/tmux.conf -O /root/.tmux.conf
+wget https://www.arnaudmorin.fr/plikrc -O /root/.plikrc
+wget https://www.arnaudmorin.fr/plik -O /usr/local/bin/plik
+chmod +x /usr/local/bin/plik
 
 title.print "Install docker"
 

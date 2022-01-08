@@ -1,14 +1,21 @@
 
 # Before starting
+## Connect
+You are going to connect to a server using `ssh`.
+
+Ask your teacher for the IP address of the machine:
+
+```
+ssh root@ip_address
+```
+
 ## Host and Demo
 You are currently connected to a server which have docker installed.
 We will call this server: `localhost`.
 
 You also have a docker container running in the background.
-We will call this container: `demo`.
 
-You can check your containers with:
-`docker ps`
+We will call this container: `demo`.
 
 During these lessons, you will be ask to use ansible to configure both `localhost` and `demo`
 
