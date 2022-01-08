@@ -1,4 +1,4 @@
 # Git - The Simple Guide
 
-https://www.arnaudmorin.fr/git-guide/
+https://www.arnaudmorin.fr/trainings/git/
 
