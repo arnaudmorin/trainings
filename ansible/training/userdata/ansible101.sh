@@ -55,11 +55,11 @@ apt-get install -y docker-ce docker-ce-cli containerd.io
 title.print "Clone ansible-training"
 
 cd /root/
-git clone https://github.com/arnaudmorin/ansible-training.git
+git clone https://github.com/arnaudmorin/trainings.git
 
 title.print "Building docker image 'demo'"
 
-cd /root/ansible-training/docker
+cd /root/trainings/ansible/training/docker
 docker build -t demo .
 
 #NOTE(arnaud) commented because this is something I want the student to do

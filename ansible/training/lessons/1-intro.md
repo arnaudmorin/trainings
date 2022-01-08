@@ -17,7 +17,7 @@ During these lessons, you will be ask to use ansible to configure both `localhos
 Install ansible on `localhost`
 
 ```
-apt-get install ansible
+# Figure out the command to do that
 ```
 
 # First use
@@ -67,7 +67,7 @@ ansible101
 Q: what command can you use to get the IP of your machine?
 
 ## Ad-hoc setup
-The `setup`module is a builtin module that collects data (also known as `facts`) on hosts.
+The `setup` module is a builtin module that collects data (also known as `facts`) on hosts.
 These data can then be used as variables in your future playbooks (we will see that later).
 
 ```
