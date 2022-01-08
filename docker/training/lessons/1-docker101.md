@@ -53,10 +53,9 @@ docker ps
 ```
 ```
 CONTAINER ID   IMAGE     COMMAND               CREATED          STATUS          PORTS                                              NAMES
-f9c03ce13b09   demo      "/usr/sbin/sshd -D"   32 minutes ago   Up 32 minutes   127.0.0.2:8080->8080/tcp, 127.0.0.2:2222->22/tcp   demo
 ```
-So you see only one container running, named `demo`.
-This is not your `debian` container, but the container used in the previous lesson.
+So you see an empty list.
+
 Why the `debian` is not visible? Because it's not running anymore!
 
 Q: what command can we use to retrieve all containers, including the stopped ones?
@@ -87,7 +86,7 @@ docker rm xxyy
 Q: which parameter to `docker run` could we pass to automate the removal of the container after the execution?
 
 # Clean your environment
-Before continuing this training, destroy all running containers using `docker stop` and `docker rm`. Destroy also the `demo` container from previous lesson, we don't need it anymore.
+Before continuing this training, destroy all running containers using `docker stop` and `docker rm`.
 
 # Real application
 It's now time to deploy a real application.
@@ -122,11 +121,9 @@ Start now a container from your image:
 ```
 docker run yourname/demo-flask
 ```
-This will start a container with the demo-flask, but the app will not be accessible from outside.
+This will start a container with the demo-flask, but the app will not be accessible from outside yet.
 
-You remember that you installed a `nginx` proxy to access the previous `demo` container?
-
-Q: find the good `docker run` command to run your container in background and expose the port locally so the `nginx` proxy reach your application.
+Q: find the good `docker run` command to run your container in background and expose the port so that you can access your app from internet.
 
 Congrats, you're done with docker101!
 

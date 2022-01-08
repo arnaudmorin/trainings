@@ -80,6 +80,6 @@ docker build -t demo .
 #systemctl restart nginx
 
 title.print "Starting demo container"
-docker run -d -p 127.0.0.2:8080:8080 -p 127.0.0.2:2222:22 --name demo demo
+docker run -d --rm -p 127.0.0.2:8080:8080 -p 127.0.0.2:2222:22 --name demo demo
 
 title.print "Done"

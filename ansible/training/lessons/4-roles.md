@@ -12,3 +12,10 @@ Your job now will be to create 2 roles:
 * one role for all tasks related to deploying nginx as a proxy
   * for this one, you must also use some variables as input parameters for both ports (80 and 8080 in the previous lessons)
 
+
+# Cleanup
+Once you're done, destroy the demo docker:
+
+```
+docker stop demo
+```
