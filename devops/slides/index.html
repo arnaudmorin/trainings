@@ -1,0 +1,201 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <title>DevOps</title>
+
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/black.css">
+
+        <!-- Theme used for syntax highlighting of code -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section data-markdown data-background="data/ovh-meet-up-brest-digit-event.jpg">
+                    # DevOps
+                    ##### Arnaud Morin
+                    ##### La culture et la pratique du DevOps
+                </section>
+                <section>
+                    <section data-markdown>
+                        ## A propos de moi
+                        * Arnaud Morin
+                        * Ingénieur DevOps / SRE
+                        * Team Public Cloud chez OVH
+                        * OpenStack Ansible Docker Kubernetes Puppet
+                    </section>
+                    <section data-markdown>
+                        ## A propos de vous
+                    </section>
+                </section>
+                <section>
+
+                    <section>
+                        <h2>Definition</h2>
+                        <blockquote style="font-size:30px">
+                            “Le DevOps est un mouvement qui s’attaque au conflit existant structurellement entre le développement de logiciels et les opérations.<br>
+                            Ce conflit résulte d’objectifs et de motivations divergents.<br>
+                            Le DevOps améliore la collaboration entre les départements du développement et des opérations et rationalise l’ensemble de l’organisation.”
+                        </blockquote>
+                        <span style="font-size:20px">Citation de Hütterman 2012 - Devops for developers</span>
+                    </section>
+
+                    <section data-markdown>
+                        ## Avant devops, le probleme
+                        * Systemes complexes
+                        * Peu / pas confiances dans les developpeurs
+                    </section>
+
+                    <section data-markdown>
+                        ## Avant devops, le resultat
+                        * Culture de la prudence
+                        * Procedures longues
+                    </section>
+
+                    <section data-markdown data-background="data/robots.gif">
+                        ## La solution
+                        * Intégration et déploiement continus (CI/CD)
+                        * Suivi de version (git)
+                        * Tests automatises / robots
+                    </section>
+
+                    <section data-markdown>
+                        ![devops](data/devops.png "devops")
+                    </section>
+
+                    <section data-markdown>
+                        ## DevOps
+                        * polyvalence
+                        * Infrastructure as Code
+                        * automatisation pousse a l'extreme
+                    </section>
+
+                    <section data-markdown>
+                        ## Attention
+                        ![automation](data/xkcd_automation.png "automation")
+                    </section>
+                </section>
+                <section>
+                    <section data-markdown>
+                        # C'est beau la theorie
+                        # La pratique?
+                    </section>
+                    <section data-markdown>
+                        ## Mots clefs
+                        * cloud
+                        * CI / CD
+                        * Infrastructure As Code
+                        * Event Driven Architecture
+                    </section>
+                </section>
+                <section>
+                    <section data-markdown>
+                        ## cloud
+                        * automate installation of new servers
+                    </section>
+                    <section>
+                        <h2>Pet versus Cattle</h2>
+                        <p float="left">
+                            <img src="data/cat.gif" height="200" />
+                            <img src="data/moutons.gif" height="200" />
+                        </p>
+                    </section>
+                    <section data-markdown>
+                        ## Outils
+                        * OpenStack
+                        * Kubernetes
+                        * Docker
+                        * Etc.
+                    </section>
+                </section>
+                <section>
+                    <section data-markdown>
+                        ## CI/CD
+                    </section>
+                    <section>
+                        <blockquote style="font-size:30px">
+                            “Release early, release often.”
+                        </blockquote>
+                        <span style="font-size:20px">Eric S. Raymond - La Cathédrale et le Bazar</span>
+                    </section>
+                    <section data-markdown>
+                        * accélérer la livraison des nouvelles versions du logiciel
+                        * tests systématiques et automatisés pour ne pas se reposer sur la vérification humaine
+                        * deploiement progressif (1/10/1000)
+                    </section>
+                    <section data-markdown>
+                        ## Outils
+                        * Git / Gitlab / Github Actions / etc.
+                        * CDS
+                        * Jenkins
+                        * Tox, etc.
+                    </section>
+                    <section data-markdown>
+                        ![gitlab](data/gitlab_workflow_example.png "gitlab")
+                    </section>
+                </section>
+                <section>
+                    <section data-markdown>
+                        ## Infrastructure As Code
+                    </section>
+                    <section data-markdown>
+                        * ecriture de l'etat desire de l'infrastructure avec du code
+                        * suivi de version dans git
+                    </section>
+                    <section data-markdown>
+                        ## Effets interessants
+                        * permet de faire des tests + CI/CD, meme sur l'infra!
+                        * connaitre l'etat de l'infra a tout moment
+                        * automatisation et reproductabilite
+                        * pas de sysadmin ad-hoc (ou presque pas)
+                        * ops travaille comme des devs (ou presque)
+                        * on peut revenir sur une version anterieur (git)
+                    </section>
+                    <section data-markdown>
+                        ## Outils
+                        * Ansible
+                        * Puppet
+                        * Terraform
+                        * Kubernetes
+                        * etc.
+                    </section>
+                </section>
+                <section data-markdown data-background="data/camion_plot.gif">
+                    ## Questions ?
+                </section>
+            </div>
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+
+        <script>
+            // More info https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                history: true,
+                slideNumber: true,
+
+                // More info https://github.com/hakimel/reveal.js#dependencies
+                dependencies: [
+                    { src: 'plugin/markdown/marked.js' },
+                    { src: 'plugin/markdown/markdown.js' },
+                    { src: 'plugin/notes/notes.js', async: true },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+                ]
+            });
+        </script>
+    </body>
+</html>
