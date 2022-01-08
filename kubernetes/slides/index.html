@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <title>Kubernetes</title>
+
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/black.css">
+
+        <!-- Theme used for syntax highlighting of code -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section data-markdown>
+                    # kubernetes overview
+                    ##### Arnaud Morin
+                </section>
+                <section>
+                    <section data-markdown>
+                        ## What is kubernetes?
+                        Kubernetes est la solution dominante d’orchestration de conteneurs développée en Open Source au sein de la Cloud Native Computing Foundation.
+                    </section>
+                    <section data-markdown>
+                        ![kubernetes](data/k8s_logo.png "kubernetes")
+                        * sorti en 2014
+                        * développé originellement par Google
+                        * basé sur une dizaine d’années d’expérience de déploiement d’application énormes
+                    </section>
+                    <section data-markdown>
+                        ![kubernetes](data/k8s_logo.png "kubernetes")
+                        * l’un des projets open source les plus populaires du monde
+                        * un ensemble de standards (beaucoup d'implementations differentes)
+                    </section>
+                    <section data-markdown>
+                        ![kubernetes](data/k8s_archi1.png "kubernetes")
+                    </section>
+                    <section data-markdown>
+                        ## Mots clefs
+                        * workers / nodes
+                        * pods
+                        * deployments
+                        * services
+                        * configmap
+                        * ingress
+                        * kubelet / kube-proxy
+                        * kubectl
+                        * kubeadm
+                    </section>
+                    <section data-markdown>
+                        ## Fournisseurs - clefs en main
+                        * Google Kubernetes Engine (GKE) (Google Cloud Plateform)
+                        * Azure Kubernetes Services (AKS) (Microsoft Azure)
+                        * Elastic Kubernetes Services (EKS) (Amazon Web Services)
+                        * OVH Managed K8s (OVHCloud)
+                    </section>
+                    <section data-markdown>
+                        ## Install "a la mano"
+                        * Rancher
+                        * k3s (from rancher)
+                        * Openshift (redhat)
+                        * microk8s (canonical)
+                        * minikube
+                        * kubeadm
+                    </section>
+                </section>
+                <section data-markdown data-background="data/camion_plot.gif">
+                    ## Questions ?
+                </section>
+            </div>
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+
+        <script>
+            // More info https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                history: true,
+                slideNumber: true,
+
+                // More info https://github.com/hakimel/reveal.js#dependencies
+                dependencies: [
+                    { src: 'plugin/markdown/marked.js' },
+                    { src: 'plugin/markdown/markdown.js' },
+                    { src: 'plugin/notes/notes.js', async: true },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+                ]
+            });
+        </script>
+    </body>
+</html>
