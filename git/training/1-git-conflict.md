@@ -21,7 +21,7 @@ master
 
 Essayez de merge la branche `branche2`:
 ```
-git merge branche2
+git merge origin/branche2
 ```
 
 Vous allez avoir un conflit.
