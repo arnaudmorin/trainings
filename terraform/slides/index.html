@@ -1,0 +1,187 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <title>Terraform</title>
+
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/black.css">
+
+        <!-- Theme used for syntax highlighting of code -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section data-markdown>
+                    # Terraform overview
+                    ##### Arnaud Morin
+                </section>
+                <section>
+                    <section data-markdown>
+                        ## What is terraform?
+                        * Open Source software from hashicorp
+                        * Create, update, manage infrastructure from code
+                        * Because it's code, it can be versionned (using git for ex.)
+                        * Intent driven
+                    </section>
+                </section>
+                <section>
+                    <section data-markdown>
+                        ## Terraform workflow
+                        ![tf](data/intro-terraform-workflow1.png "tf")
+                    </section>
+                    <section data-markdown>
+                        ## Terraform workflow
+                        ![tf](data/intro-terraform-workflow2.png "tf")
+                    </section>
+                    <section data-markdown>
+                        ## Terraform workflow
+                        ![tf](data/intro-terraform-workflow3.png "tf")
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Infrastructure As Code</h2>
+                        <pre><code data-trim data-noescape>
+provider "openstack" {
+}
+resource "openstack_compute_instance_v2" "server1" {
+  name 		= "server1"
+  image_name 	= "Debian 11"
+  flavor_name 	= "small"
+  network {
+    name = "public"
+  }
+}
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>terraform plan</h2>
+                        <pre><code data-trim data-noescape>
+Terraform will perform the following actions:
+
+  # openstack_compute_instance_v2.server1 will be created
+  + resource "openstack_compute_instance_v2" "server1" {
+      + access_ip_v4        = (known after apply)
+      + access_ip_v6        = (known after apply)
+      + all_metadata        = (known after apply)
+      + all_tags            = (known after apply)
+      + availability_zone   = (known after apply)
+      + flavor_id           = (known after apply)
+      + flavor_name         = "small"
+      + force_delete        = false
+      + id                  = (known after apply)
+      + image_id            = (known after apply)
+      + image_name          = "Debian 11"
+      + name                = "server1"
+      + power_state         = "active"
+      + region              = (known after apply)
+      + security_groups     = (known after apply)
+      + stop_before_destroy = false
+
+      + network {
+          + access_network = false
+          + fixed_ip_v4    = (known after apply)
+          + fixed_ip_v6    = (known after apply)
+          + floating_ip    = (known after apply)
+          + mac            = (known after apply)
+          + name           = "public"
+          + port           = (known after apply)
+          + uuid           = (known after apply)
+        }
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>terraform apply</h2>
+                        <pre><code data-trim data-noescape>
+openstack_compute_instance_v2.server1: Creating...
+openstack_compute_instance_v2.server1: Still creating... [10s elapsed]
+openstack_compute_instance_v2.server1: Creation complete after 20s [id=005ae25d-ce0a-425b-94e6-fb0cb27e3781]
+
+Apply complete! Resources: 1 added, 0 changed, 1 destroyed.
+
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>terraform destroy</h2>
+                        <pre><code data-trim data-noescape>
+Terraform will perform the following actions:
+
+  # openstack_compute_instance_v2.server1 will be destroyed
+  - resource "openstack_compute_instance_v2" "server1" {
+      - access_ip_v4        = "193.70.24.7" -> null
+      - all_metadata        = {} -> null
+      - all_tags            = [] -> null
+      - availability_zone   = "nova" -> null
+      - flavor_id           = "93f96757-ea92-44bf-8204-da2eaf5f2aae" -> null
+      - flavor_name         = "small" -> null
+      - force_delete        = false -> null
+      - id                  = "005ae25d-ce0a-425b-94e6-fb0cb27e3781" -> null
+      - image_id            = "3a2089f1-9b9d-4dc1-970a-9dcb785c01c9" -> null
+      - image_name          = "Debian 11" -> null
+      - name                = "server1" -> null
+      - power_state         = "active" -> null
+      - security_groups     = [
+          - "default",
+        ] -> null
+      - stop_before_destroy = false -> null
+      - tags                = [] -> null
+
+      - network {
+          - access_network = false -> null
+          - fixed_ip_v4    = "193.70.24.7" -> null
+          - mac            = "fa:16:3e:22:2c:b6" -> null
+          - name           = "public" -> null
+          - uuid           = "2813f459-a20d-4e50-8193-fe3c639e1ab6" -> null
+        }
+    }
+
+                        </code></pre>
+                    </section>
+                </section>
+                <section data-markdown>
+                    ## Documentation OpenStack
+                    https://registry.terraform.io/providers/terraform-provider-openstack/openstack/latest/docs
+                </section>
+                <section data-markdown data-background="data/camion_plot.gif">
+                    ## Questions ?
+                </section>
+            </div>
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+
+        <script>
+            // More info https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                history: true,
+                slideNumber: true,
+
+                // More info https://github.com/hakimel/reveal.js#dependencies
+                dependencies: [
+                    { src: 'plugin/markdown/marked.js' },
+                    { src: 'plugin/markdown/markdown.js' },
+                    { src: 'plugin/notes/notes.js', async: true },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+                ]
+            });
+        </script>
+    </body>
+</html>
