@@ -1,3 +1,4 @@
 # Trainings
 
-A git repo that regroup all trainings I do
+# MOVE TO
+https://git.arnaudmorin.fr/arnaud/trainings
